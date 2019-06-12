@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="js/rem.js"></script>
+    <style>
+        body {
+            margin: 0rem;
+            padding: 0rem;
+        }
+
+        .div1 {
+            width: 2.7rem;
+            height: 2.7rem;
+            background: #10a78e;
+            margin: 2rem auto 2rem;
+            color: #fff;
+            line-height: 2.7rem;
+            font-size: 0.8rem;
+            text-align: center;
+            border-radius: 2.5rem;
+        }
+
+        .div2 {
+            margin-top: -0.8rem;
+        }
+
+        .div2_1 {
+            text-align: center;
+            position: relative;
+        }
+
+        .input2_1 {
+            width: 6rem;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 0.01rem solid #ababab;
+            padding-bottom: 0.5rem;
+            padding-left: 0.3rem;
+            font-size: 0.2rem;
+            outline: none;
+            color: #ababab;
+        }
+
+        .input2_2 {
+            width: 6rem;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            border-bottom: 0.01rem solid #ababab;
+            padding-bottom: 0.5rem;
+            padding-left: 0.3rem;
+            font-size: 0.2rem;
+            outline: none;
+            color: #000;
+        }
+
+        .img2_1 {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            width: 0.5rem;
+        }
+
+        .img2_2 {
+            position: absolute;
+            top: 0.7rem;
+            right: 0.8rem;
+            width: 0.6rem;
+        }
+
+        .div3 {
+            text-align: center;
+            margin-top: 0.9rem;
+        }
+
+        .span3_1 {
+            background: #10a78e;
+            color: #fff;
+            border-radius: 2rem;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            font-size: 0.5rem;
+        }
+
+        .div4 {
+            text-align: center;
+            margin-top: -0.2rem;
+        }
+
+        .span4_1 {
+            font-size: 0.2rem;
+            color: #10a78e;
+        }
+
+        .div5 {
+            font-size: 0.2rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .span5_1 {
+            color: #10a78e;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div0">
+        <div v-bind:class="{div1:d1}">
+            LOGO
+        </div>
+        <div v-bind:class="{div2:d2}">
+            <form>
+                <div v-bind:class="{div2_1:d2_1}">
+                    <input type="text" placeholder="请输入您的手机号" v-bind:class="{input2_1:i2_1}" />
+                </div>
+                <div v-bind:class="{div2_1:d2_1}">
+                    <input type="password" value="123456" v-bind:class="{input2_2:i2_2}" v-bind:type="myp" />
+                    <img src="Home_img/biyan.png" v-if="eye" v-bind:class="{img2_1:img2_1}" @click="aa" />
+                    <img src="Home_img/zhengyan.png" v-else v-bind:class="{img2_2:img2_2}" @click="aa" />
+                </div>
+            </form>
+        </div>
+        <div v-bind:class="{div3:d3}">
+            <span v-bind:class="{span3_1:s3_1}">登 录</span>
+        </div>
+        <div v-bind:class="{div4:d4}">
+            <span v-bind:class="{span4_1:s4_1}">忘记密码？</span>
+        </div>
+        <div v-bind:class="{div5:d5}">
+            没有账号？
+            <span v-bind:class="{span5_1:s5_1}">立即注册</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#div0',
+        data: {
+            d1: true,
+            d2: true,
+            d2_1: true,
+            i2_1: true,
+            i2_2: true,
+            d3: true,
+            s3_1: true,
+            d4: true,
+            s4_1: true,
+            d5: true,
+            s5_1: true,
+            img2_1: true,
+            img2_2: true,
+            myp: "password",
+            eye: true
+        },
+        methods: {
+            aa: function () {
+                if (this.eye) {
+                    this.eye = false
+                    this.myp = "text"
+                } else {
+                    this.eye = true
+                    this.myp = "password"
+                }
+            }
+
+        }
+    })
+</script>
+
+<!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+<!-- jquery方法实现密码睁眼闭眼和显示密码和圆点 -->
+<!-- <script>
+    $(".img2_1").click(function () {
+        $(this).hide();
+        $(this).next().show();
+        $(".input2_2").attr("type", "text");
+    });
+    $(".img2_2").click(function () {
+        $(this).hide();
+        $(this).prev().show();
+        $(".input2_2").attr("type", "password");
+    });
+</script> -->
+
+</html>
